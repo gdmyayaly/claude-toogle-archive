@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .header h2 {
+      margin: 0;
+      color: #333;
+      font-size: 18px;
+    }
+    
+    .settings-group {
+      margin-bottom: 20px;
+    }
+    
+    .settings-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #555;
+    }
+    
+    .position-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .position-input {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .position-input input {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    .position-input small {
+      color: #666;
+      margin-top: 2px;
+      font-size: 11px;
+    }
+    
+    .preset-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+    
+    .preset-btn {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      background: #f8f9fa;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+    
+    .preset-btn:hover {
+      background: #e9ecef;
+      border-color: #adb5bd;
+    }
+    
+    .apply-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .apply-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+    
+    .status {
+      text-align: center;
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .status.success {
+      background: #d4edda;
+      color: #155724;
+      opacity: 1;
+    }
+    
+    .status.error {
+      background: #f8d7da;
+      color: #721c24;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>📁 Button Position</h2>
+  </div>
+  
+  <div class="settings-group">
+    <label>Custom position (in pixels):</label>
+    <div class="position-controls">
+      <div class="position-input">
+        <input type="number" id="leftInput" placeholder="Left" min="0">
+        <small>Left</small>
+      </div>
+      <div class="position-input">
+        <input type="number" id="topInput" placeholder="Top" min="0">
+        <small>Top</small>
+      </div>
+      <div class="position-input">
+        <input type="number" id="rightInput" placeholder="Right" min="0">
+        <small>Right</small>
+      </div>
+      <div class="position-input">
+        <input type="number" id="bottomInput" placeholder="Bottom" min="0">
+        <small>Bottom</small>
+      </div>
+    </div>
+  </div>
+  
+  <div class="settings-group">
+    <label>Preset positions:</label>
+    <div class="preset-buttons">
+      <button class="preset-btn" data-position="top-left">🔝 Top Left</button>
+      <button class="preset-btn" data-position="top-right">🔝 Top Right</button>
+      <button class="preset-btn" data-position="bottom-left">🔽 Bottom Left</button>
+      <button class="preset-btn" data-position="bottom-right">🔽 Bottom Right</button>
+    </div>
+  </div>
+  
+  <button class="apply-btn" id="applyBtn">Apply</button>
+  
+  <div class="status" id="status"></div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

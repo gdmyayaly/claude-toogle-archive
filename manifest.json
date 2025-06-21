@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Claude Projects Archive Toggle",
+  "version": "1.0",
+  "description": "Toggle visibility of archived projects on Claude.ai",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://claude.ai/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/projects*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Claude Archive Toggle Settings"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png"
+  }
+}
